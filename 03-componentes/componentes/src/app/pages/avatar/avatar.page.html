@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="primary">Avatar</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <ion-img src="../../../assets/Captura de pantalla 2024-09-25 170739.png" alt="Avatar"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-chip color="primary" outline="true" *ngFor="let i of [1,1,1,1]">
+    <!-- Icono para el avatar -->
+    <ion-avatar>
+      <img src="../../../assets/Captura de pantalla 2024-09-25 170739.png">
+    </ion-avatar>
+    <!-- El msg por defecto -->
+    <ion-label>Default</ion-label>
+  </ion-chip>
+
+  <ion-list>
+    <ion-item *ngFor="let i of [1,1,1,1]">
+      <ion-avatar slot="start">
+        <ion-img src="../../../assets/Captura de pantalla 2024-09-25 170739.png" alt="Avatar"></ion-img>
+      </ion-avatar>
+      <ion-label>Loco frontera</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
