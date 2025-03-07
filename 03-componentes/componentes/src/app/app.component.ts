@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { StatusBar } from '@capacitor/status-bar';
+import { DataService } from './services/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +11,19 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  componentes!: Observable<any[]>;
+
+  constructor(
+    private platform: Platform,
+    private dataService: DataService
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.componentes = this.dataService.getMenuOpts();
+
+    });
+  }
 }
