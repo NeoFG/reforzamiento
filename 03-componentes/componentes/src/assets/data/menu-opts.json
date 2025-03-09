@@ -73,6 +73,21 @@
     "icon": "tablet-portrait-outline",
      "name": "Popover",
     "redirectTo": "/popover"
+   },
+   {
+    "icon": "code-working-outline",
+     "name": "ProgressBar",
+    "redirectTo": "/progress"
+   },
+   {
+    "icon": "arrow-down-circle-outline",
+     "name": "Refresher",
+    "redirectTo": "/refresher"
+   },
+   {
+    "icon": "search-outline",
+     "name": "Search",
+    "redirectTo": "/search"
    }
 
 ]
