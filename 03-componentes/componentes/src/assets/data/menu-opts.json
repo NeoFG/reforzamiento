@@ -98,6 +98,16 @@
     "icon": "albums-outline",
      "name": "Slides",
     "redirectTo": "/slides"
+   },
+   {
+    "icon": "cog-outline",
+     "name": "Tabs",
+    "redirectTo": "/tabs"
+   },
+   {
+    "icon": "pricetag-outline",
+     "name": "Toast",
+    "redirectTo": "/toast"
    }
 
 ]
