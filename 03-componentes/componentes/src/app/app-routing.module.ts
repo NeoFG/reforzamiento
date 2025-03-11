@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SlidesPage } from './pages/slides/slides.page'; // Importa directamente el componente
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
   {
     path: 'button',
     loadChildren: () => import('./pages/button/button.module').then( m => m.ButtonPageModule)
-  },  {
+  },
+  {
     path: 'card',
     loadChildren: () => import('./pages/card/card.module').then( m => m.CardPageModule)
   },
@@ -96,7 +98,7 @@ const routes: Routes = [
   },
   {
     path: 'slides',
-    loadChildren: () => import('./pages/slides/slides.module').then( m => m.SlidesPageModule)
+    loadChildren: () => import('./pages/slides/slides.module').then(m => m.SlidesPageModule),
   },
   {
     path: 'tabs',

@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Mis Slides</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- Usa swiper-container con las opciones de Swiper -->
+    <swiper-container [pagination]="true" [autoplay]="true" [loop]="true" [speed]="1000">
+        <!-- Usa swiper-slide para cada slide -->
+        <swiper-slide *ngFor="let slide of slides; let i = index" class="slide">
+            <div class="slide-content">
+                <img [src]="slide.img" alt="{{ slide.titulo }}" class="slide-image" />
+                <h1 class="slide-title">{{ slide.titulo }}</h1>
+                <p class="slide-description">{{ slide.desc }}</p>
+
+                <!-- Botón "Regresar" solo en el último slide -->
+                <ion-button *ngIf="i === slides.length - 1" (click)="onClick()" class="regresar-button">
+                    Regresar
+                </ion-button>
+            </div>
+        </swiper-slide>
+    </swiper-container>
+</ion-content>
