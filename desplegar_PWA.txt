@@ -1,0 +1,35 @@
+Hacer la aplicación PWA
+
+Pasos previos haber creado un proyecto en firebase https://console.firebase.google.com/
+
+1. ng add @angular/pwa@16
+2. ionic build --prod --service-worker
+3. npm install -g firebase-tools (Cierro poryecto y lo abro para que detecte)
+4. npx firebase login (Debe darme el correo donde cree el proyecto en firebase)
+5. firebase login (Debe darme el correo donde cree el proyecto en firebase)
+6. firebase init (configuro)
+	? What do you want to use as your public directory? public        
+	? Configure as a single-page app (rewrite all urls to /index.html)? No
+	? Set up automatic builds and deploys with GitHub? No
+	+  Wrote public/404.html
+	? File public/index.html already exists. Overwrite? No
+	i  Skipping write of public/index.html
+	? Configure as a single-page app (rewrite all urls to /index.html)? No
+	? Set up automatic builds and deploys with GitHub? No
+	+  Wrote public/404.html
+7. firebase deploy
+
+=== Deploying to 'ionic-pwa-3bbaf'...
+
+i  deploying hosting
+i  hosting[ionic-pwa-3bbaf]: beginning deploy...
+i  hosting[ionic-pwa-3bbaf]: found 1472 files in public
++  hosting[ionic-pwa-3bbaf]: file upload complete
+i  hosting[ionic-pwa-3bbaf]: finalizing version...
++  hosting[ionic-pwa-3bbaf]: version finalized
++  hosting[ionic-pwa-3bbaf]: release complete
+
++  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/ionic-pwa-3bbaf/overview
+Hosting URL: https://ionic-pwa-3bbaf.web.app
