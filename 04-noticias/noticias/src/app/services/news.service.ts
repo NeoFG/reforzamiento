@@ -2,7 +2,7 @@ import { Article, NewsResponse, ArticlesByCategoryAndPage } from './../interface
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -31,25 +31,30 @@ export class NewsService {
 
 
   getTopHeadlines():Observable<Article[]>{
-    console.log('Petición HTTP realizada');
-    return this.http.get<NewsResponse>('https://newsapi.org/v2/top-headlines?country=us&category=business',{
-      params:{
-        apiKey: apiKey
-      }
-    }).pipe(
-      map(({articles}) => articles)
-    );
+
+    return this.getTopHeadlinesByCategory('business');   
+    //return this.http.get<NewsResponse>('https://newsapi.org/v2/top-headlines?country=us&category=business',{
+      //params:{
+        //apiKey: apiKey
+      //}
+    //}).pipe(
+      //map(({articles}) => articles)
+    //);
   }
 
 
-  getTopHeadlinesByCategory(category: string, loadMore: boolean = false):Observable<Article[]>{
-    return this.http.get<NewsResponse>(`https://newsapi.org/v2/top-headlines?country=us&category=${category}`,{
-      params:{
-        apiKey: apiKey
+  getTopHeadlinesByCategory(category: string, loadMore: boolean = false):Observable<Article[]> {
+
+    if ( loadMore ) {
+      return this.getArticlesByCategory(category);
+    }
+
+      if (this.articlesByCategoryAndPage[category] ) {
+        return of(this.articlesByCategoryAndPage[category].articles );
       }
-    }).pipe(
-      map(({articles}) => articles)
-    );
+
+      return this.getArticlesByCategory ( category);
+
   }
 
 private getArticlesByCategory (category: string) : Observable<Article[]>{
@@ -69,7 +74,17 @@ private getArticlesByCategory (category: string) : Observable<Article[]>{
 
   return this.executeQuery<NewsResponse>(`/top-headlines?category=${ category }&page=${ page }`)
   .pipe(
-    map(({ articles }) => articles)
+    map(({ articles }) =>  {
+
+      if (articles.length == 0) return [];
+
+      this.articlesByCategoryAndPage[category] = {
+        page: page,
+        articles: [ ...this.articlesByCategoryAndPage[category].articles, ...articles]
+      }
+
+      return this.articlesByCategoryAndPage[category].articles;
+    })
   );
 
       }
