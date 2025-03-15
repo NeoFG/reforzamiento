@@ -1,23 +1,43 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import { CommonModule } from '@angular/common';
 import { Article } from 'src/app/interfaces';
-import { IonicModule } from '@ionic/angular'; // Importa IonicModule
+import { IonicModule, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [CommonModule, IonicModule], // Agregar aquí IonicModule
+  imports: [CommonModule, IonicModule],
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
 
 })
-export class ArticleComponent  implements OnInit {
+export class ArticleComponent {
 
   @Input() article!: Article;
   @Input() index!: number;
 
-  constructor() { }
+  constructor(
+    private iab: InAppBrowser,
+    private platform: Platform
+  ) { }
 
-  ngOnInit() {}
+  openArticle(){
+
+  if ( this.platform.is('ios') || this.platform.is('android')) {
+
+  }
+  const browser = this.iab.create( this.article.url);
+  browser.show();
+  return;
+
+   window.open(this.article.url, '_blank');
+  }
+
+
+  onClick() {
+    console.log('El botón fue presionado');
+
+  }
 
 }
