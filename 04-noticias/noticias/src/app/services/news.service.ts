@@ -6,8 +6,6 @@ import { NewsResponse, Article, ArticlesByCategoryAndPage } from '../interfaces'
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
-
 const apiKey = environment.apiKey;
 const apiUrl = environment.apiUrl;
 
@@ -18,12 +16,11 @@ export class NewsService {
 
   private articlesByCategoryAndPage: ArticlesByCategoryAndPage = {};
 
+  constructor(private http: HttpClient) { }
 
-  constructor( private http: HttpClient ) { }
-
-  private executeQuery<T>( endpoint: string ) {
+  private executeQuery<T>(endpoint: string) {
     console.log('Petición HTTP realizada');
-    return this.http.get<T>(`${ apiUrl }${ endpoint }`, {
+    return this.http.get<T>(`${apiUrl}${endpoint}`, {
       params: {
         apiKey: apiKey,
         country: 'us',
@@ -31,9 +28,7 @@ export class NewsService {
     })
   }
 
-
-
-  getTopHeadlines():Observable<Article[]> {
+  getTopHeadlines(): Observable<Article[]> {
 
     return this.getTopHeadlinesByCategory('business');
     // return this.executeQuery<NewsResponse>(`/top-headlines?category=business`)
@@ -43,26 +38,22 @@ export class NewsService {
 
   }
 
-  getTopHeadlinesByCategory( category: string, loadMore: boolean = false ):Observable<Article[]> {
+  getTopHeadlinesByCategory(category: string, loadMore: boolean = false): Observable<Article[]> {
 
-    if ( loadMore ) {
-      return this.getArticlesByCategory( category );
+    if (loadMore) {
+      return this.getArticlesByCategory(category);
     }
 
-    if ( this.articlesByCategoryAndPage[category] ) {
+    if (this.articlesByCategoryAndPage[category]) {
       return of(this.articlesByCategoryAndPage[category].articles);
     }
 
-    return this.getArticlesByCategory( category );
-
+    return this.getArticlesByCategory(category);
   }
 
+  private getArticlesByCategory(category: string): Observable<Article[]> {
 
-  private getArticlesByCategory( category: string ): Observable<Article[]> {
-
-
-
-    if ( Object.keys( this.articlesByCategoryAndPage ).includes(category) ) {
+    if (Object.keys(this.articlesByCategoryAndPage).includes(category)) {
       // Ya existe
       // this.articlesByCategoryAndPage[category].page += 0;
     } else {
@@ -75,22 +66,20 @@ export class NewsService {
 
     const page = this.articlesByCategoryAndPage[category].page + 1;
 
-    return this.executeQuery<NewsResponse>(`/top-headlines?category=${ category }&page=${ page }`)
-    .pipe(
-      map( ({ articles }) => {
+    return this.executeQuery<NewsResponse>(`/top-headlines?category=${category}&page=${page}`)
+      .pipe(
+        map(({ articles }) => {
 
-        if ( articles.length === 0 ) return this.articlesByCategoryAndPage[category].articles;
+          if (articles.length === 0) return this.articlesByCategoryAndPage[category].articles;
 
-        this.articlesByCategoryAndPage[category] = {
-          page: page,
-          articles: [ ...this.articlesByCategoryAndPage[category].articles, ...articles ]
-        }
+          this.articlesByCategoryAndPage[category] = {
+            page: page,
+            articles: [...this.articlesByCategoryAndPage[category].articles, ...articles]
+          }
 
-        return this.articlesByCategoryAndPage[category].articles;
-      })
-    );
-
-
+          return this.articlesByCategoryAndPage[category].articles;
+        })
+      );
   }
 
 }

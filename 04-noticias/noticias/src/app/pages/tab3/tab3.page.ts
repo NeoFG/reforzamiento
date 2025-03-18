@@ -9,12 +9,12 @@ import { StorageService } from 'src/app/services/storage.service';
   standalone: false,
 })
 export class Tab3Page {
-  
+
   constructor(
     private storageService: StorageService
-  ) {}
-  
-  get articles(): Article[]{
+  ) { }
+
+  get articles(): Article[] {
     return this.storageService.getLocalArticles;
   }
 }

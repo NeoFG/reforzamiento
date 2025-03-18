@@ -40,14 +40,13 @@ export class StorageService {
     this._storage?.set('articles', this._localArticles)
   }
 
-  async loadFavorites() {  
+  async loadFavorites() {
     try {
       const articles = await this._storage?.get('articles');
       this._localArticles = articles || [];
-    } catch(error) {
+    } catch (error) {
 
     }
-
   }
 
   // Metodo para saber si un articulo es favorito
@@ -56,7 +55,4 @@ export class StorageService {
       localArticles => localArticles.title === article.title
     );
   }
-
-
-
 }

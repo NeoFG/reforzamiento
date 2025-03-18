@@ -19,4 +19,4 @@ import { ComponentsModule } from 'src/app/components/components.module';
   ],
   declarations: [Tab3Page]
 })
-export class Tab3PageModule {}
+export class Tab3PageModule { }

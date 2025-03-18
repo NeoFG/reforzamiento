@@ -23,4 +23,4 @@ import { ArticlesComponent } from 'src/app/components/articles/articles.componen
   ],
   declarations: [Tab1Page]
 })
-export class Tab1PageModule {}
+export class Tab1PageModule { }

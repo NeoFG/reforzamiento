@@ -12,7 +12,7 @@ import { ArticleComponent } from "../article/article.component";
   styleUrls: ['./articles.component.scss'],
 })
 export class ArticlesComponent {
-  @Input() articles: Article[]=[];
+  @Input() articles: Article[] = [];
 
   constructor() { }
 
