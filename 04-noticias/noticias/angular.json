@@ -32,7 +32,10 @@
               }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "localforage"
+            ]
           },
           "configurations": {
             "production": {
@@ -80,9 +83,7 @@
             "development": {
               "buildTarget": "app:build:development"
             },
-            "ci": {
-              "progress": false
-            }
+            "ci": {}
           },
           "defaultConfiguration": "development"
         },
