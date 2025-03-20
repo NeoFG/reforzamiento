@@ -12,11 +12,11 @@ export interface Article {
     url: string;
     urlToImage: string;
     publishedAt: string;
-    content: string;
+    content: string | null;
 }
 
 export interface Source {
-    id: string;
+    id: string | null;
     name: string;
 }
 
