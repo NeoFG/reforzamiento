@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #e6f7ff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #0077b6;
+  text-align: center;
+}
+
+h3 {
+  color: #0096c7;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #00b4d8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0077b6;
+}
+
+p {
+  color: #023e8a;
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #caf0f8;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: #0077b6;
+}
+
+select {
+  background-color: #00b4d8;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+select:hover {
+  background-color: #0077b6;
+}
+
+div[ngSwitch] p {
+  background-color: #90e0ef;
+  padding: 10px;
+  border-radius: 5px;
+  color: #023e8a;
+  margin-top: 10px;
+}
