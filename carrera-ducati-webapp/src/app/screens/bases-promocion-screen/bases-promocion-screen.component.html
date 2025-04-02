@@ -1,0 +1,61 @@
+<section class="bases-promocion">
+  <div class="wrapper">
+      <mat-drawer-container>
+          <mat-drawer #drawer mode='over' position="start">
+              <app-left-sidebar (cerrar)="drawer.toggle()"></app-left-sidebar>
+          </mat-drawer>
+          <app-header-app (drawer)="drawer.toggle()"></app-header-app>
+          <!-- Sección del body donde se muestra todo el contenido -->
+          <div class="body-home">
+              <div class="section-image">
+                  <img src="/assets/images/header-img.png" class="header-img">
+                  <div class="eslogan {{isMobile()}}">
+                      <div class="line-color">
+                          <div class="vertical-line" style="height: 111px;"></div>
+                      </div>
+                      <div class="title-link">
+                          <span>BASES DE LA PROMOCIÓN</span>
+                      </div>
+                  </div>
+              </div>
+              <!-- Sección de imagenes -->
+              <div class="section-bases">
+                  <div class="num-bases">
+                      <img src="/assets/images/1-compra-titulo.png" class="compra-1">
+                      <div class="text-and-image">
+                          <span class="txt-normal">productos participantes</span>
+                          <img src="/assets/images/logo-marcas.png" class="logo-mini">
+                      </div>
+                      <span class="txt-bold mt-1">en Liverpool/Devlyn</span>
+                  </div>
+
+                  <div class="num-bases">
+                      <img src="/assets/images/2-registra-titulo.png" class="compra-2">
+                      <span class="txt-normal">todos tus códigos en el sitio</span>
+                      <span class="txt-bold">www.acelerayganaconcarrera.com.mx</span>
+                  </div>
+
+                  <div class="num-bases">
+                      <img src="/assets/images/3-acumula-titulo.png" class="compra-3">
+                      <span class="txt-normal">puntos con cada compra y juega por puntos extras</span>
+                  </div>
+
+                  <div class="num-bases">
+                      <img src="/assets/images/4-gana-titulo.png" class="compra-4">
+                      <span class="txt-normal">
+                          Una&nbsp;<span class="txt-bold">Moto Ducati</span>&nbsp;al finalizar la promoción
+                      </span>
+                      <div class="mt-4 mb-4">
+                          <img src="/assets/images/moto.png" class="moto-img">
+                      </div>
+                  </div>
+              </div>
+              <!-- Footer -->
+              <div class="footer">
+                  <app-footer-app></app-footer-app>
+              </div>
+          </div>
+      </mat-drawer-container>
+      <!-- Se cierra el sidebar -->
+  </div>
+</section>
