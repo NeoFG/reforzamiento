@@ -16,6 +16,8 @@ const apiUrl = environment.apiUrl;
 })
 export class NewsService {
 
+  // private articlesByCategoryAndPage: ArticlesByCategoryAndPage = {}; // Descomentar si lo quiero hacer en tiempo real y comentar el otro
+
   private articlesByCategoryAndPage: ArticlesByCategoryAndPage = storedArticlesByCategory as ArticlesByCategoryAndPage;
 
   constructor(private http: HttpClient) { }
@@ -42,6 +44,7 @@ export class NewsService {
 
   getTopHeadlinesByCategory(category: string, loadMore: boolean = false): Observable<Article[]> {
 
+    // Si quiero hacerlo en tiempo real comentar la siguiente linea
     return of(this.articlesByCategoryAndPage[category].articles);
 
     /* if (loadMore) {

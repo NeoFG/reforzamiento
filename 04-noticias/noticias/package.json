@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^19.2.3",
     "@angular/platform-browser-dynamic": "^19.2.3",
     "@angular/router": "^19.2.3",
+    "@angular/service-worker": "^19.2.3",
     "@capacitor/app": "7.0.0",
     "@capacitor/browser": "^7.0.0",
     "@capacitor/core": "7.1.0",
