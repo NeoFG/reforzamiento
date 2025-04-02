@@ -1,0 +1,9 @@
+<h1>Posts</h1>
+
+<!-- Tuberia | y el async -->
+<ul class="list-group">
+  <app-post *ngFor="let mensaje of mensajes | async" 
+            [mensaje]="mensaje" 
+            (clicPost)="eschuchaClick($event)">
+  </app-post>
+</ul>
