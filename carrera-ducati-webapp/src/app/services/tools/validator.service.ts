@@ -5,7 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class ValidatorService {
 
-  constructor() { }
+  constructor() {}
+
+  // Validación para solo letras y espacios (incluye acentos y ñ)
+  onlyLettersAndSpaces(value: string): boolean {
+    return value ? /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/.test(value) : false;
+  }
 
   //Funciones para validaciones
   required(input:any){

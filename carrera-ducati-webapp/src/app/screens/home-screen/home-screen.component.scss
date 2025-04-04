@@ -255,7 +255,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  overflow-x: scroll !important;
+  overflow-x:auto;
 
   .table>:not(caption)>*>* {
     background: none 0% 0% no-repeat padding-box;
@@ -297,6 +297,10 @@
 
 .interior-codigos-registrados {
   width: 60%;
+  max-width: 800px;/* Evita que se expanda demasiado en pantallas grandes */
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Centrar el contenido */
 }
 
 .title-codigos {

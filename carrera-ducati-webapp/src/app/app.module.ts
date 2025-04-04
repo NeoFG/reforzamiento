@@ -26,6 +26,7 @@ import { HeaderAppComponent } from './partials/header-app/header-app.component';
 import { LeftSidebarComponent } from './partials/left-sidebar/left-sidebar.component';
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
 import { BasesPromocionScreenComponent } from './screens/bases-promocion-screen/bases-promocion-screen.component';
+import { PoliticaPrivacidadScreenComponent } from './screens/politica-privacidad-screen/politica-privacidad-screen.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BasesPromocionScreenComponent } from './screens/bases-promocion-screen/
     HeaderAppComponent,
     LeftSidebarComponent,
     HomeScreenComponent,
-    BasesPromocionScreenComponent
+    BasesPromocionScreenComponent,
+    PoliticaPrivacidadScreenComponent
   ],
   imports: [
     BrowserModule,

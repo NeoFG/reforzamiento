@@ -46,7 +46,7 @@ export class HomeScreenComponent implements OnInit{
   }
 
   public saberMas(){
-    // this.router.navigate(["bases-promocion"]);
+    this.router.navigate(["bases-promocion"]);
   }
 
   public obtenerCodigos(){
@@ -85,7 +85,7 @@ export class HomeScreenComponent implements OnInit{
   }
 
   public registrarCodigo(){
-
+    this.router.navigate(["bases-promocion"]);
   }
 
   public isMobile(tipo: number){

@@ -32,14 +32,17 @@ export class UsuariosService {
     console.log("Validando user... ", data);
     let error: any = [];
 
-    if(!this.validatorService.required(data["first_name"])){
+    if (!this.validatorService.required(data["first_name"])) {
       error["first_name"] = this.errorService.required;
+    } else if (!this.validatorService.onlyLettersAndSpaces(data["first_name"])) {
+      error["first_name"] = this.errorService.onlyLetters;
     }
 
-    if(!this.validatorService.required(data["last_name"])){
+    if (!this.validatorService.required(data["last_name"])) {
       error["last_name"] = this.errorService.required;
+    } else if (!this.validatorService.onlyLettersAndSpaces(data["last_name"])) {
+      error["last_name"] = this.errorService.onlyLetters;
     }
-
     if(!this.validatorService.required(data["email"])){
       error["email"] = this.errorService.required;
     }else if(!this.validatorService.max(data["email"], 40)){
@@ -57,8 +60,10 @@ export class UsuariosService {
       error["telefono"] = this.errorService.required;
     }
 
-    if(!this.validatorService.required(data["ciudad"])){
+    if (!this.validatorService.required(data["ciudad"])) {
       error["ciudad"] = this.errorService.required;
+    } else if (!this.validatorService.onlyLettersAndSpaces(data["ciudad"])) {
+      error["ciudad"] = this.errorService.onlyLetters;
     }
 
     if(!this.validatorService.required(data["edad"])){
@@ -67,7 +72,5 @@ export class UsuariosService {
 
     return error;
   }
-
-
-
+  
 }
